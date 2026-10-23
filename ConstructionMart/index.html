@@ -1,0 +1,20 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Amman Arul Larry Builders Service{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="{% url 'home' %}"><span class="brand-icon">AAL</span><span>Amman Arul Larry<small>BUILDERS SERVICE</small></span></a>
+  <nav><a href="{% url 'home' %}">Materials</a><a href="{% url 'cart' %}" class="cart-link">Cart <span class="cart-count">{{ cart_count|default:0 }}</span></a></nav>
+</header>
+{% if messages %}<div class="messages">{% for message in messages %}<div class="message {{ message.tags }}">{{ message }}</div>{% endfor %}</div>{% endif %}
+<main>{% block content %}{% endblock %}</main>
+<footer><div><strong>Amman Arul Larry Builders Service</strong><p>Construction materials, made easier.</p></div><div class="footer-right">Project Engineer: <strong>Vinoth Kumar</strong><br><span>Student demo project · Sample prices</span></div></footer>
+</body>
+</html>
